@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6FBB3E63-13FA-48A7-BD29-14A5721B1A5F"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB77F596-C01B-46FB-8A3D-DC8763BC694A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "openInApp/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DB77F596-C01B-46FB-8A3D-DC8763BC694A - 1f0525e0566b5abd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.Result&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; () in openInApp.NetWorkManager.fetchData() -&gt; Combine.Future&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;"
+                  moduleName = "openInApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robingeorge/Documents/Assignment%20help%202/openInApp/openInApp/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "1220">
+               </Location>
+               <Location
+                  uuid = "DB77F596-C01B-46FB-8A3D-DC8763BC694A - d6ed92cefe7e63ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.Data, __C.NSURLResponse) throws -&gt; Foundation.Data in closure #1 ((Swift.Result&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; () in openInApp.NetWorkManager.fetchData() -&gt; Combine.Future&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;"
+                  moduleName = "openInApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robingeorge/Documents/Assignment%20help%202/openInApp/openInApp/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84CCD034-D134-43B7-B5EA-C7A8B2AC9B9B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "openInApp/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "84CCD034-D134-43B7-B5EA-C7A8B2AC9B9B - 2cae282983bb0801"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "openInApp.NetWorkManager.fetchData() -&gt; Combine.Future&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;"
+                  moduleName = "openInApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robingeorge/Documents/Assignment%20help%202/openInApp/openInApp/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "84CCD034-D134-43B7-B5EA-C7A8B2AC9B9B - 1f0525e0566b59b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.Result&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; () in openInApp.NetWorkManager.fetchData() -&gt; Combine.Future&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;"
+                  moduleName = "openInApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robingeorge/Documents/Assignment%20help%202/openInApp/openInApp/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "736">
+               </Location>
+               <Location
+                  uuid = "84CCD034-D134-43B7-B5EA-C7A8B2AC9B9B - 1f0525e0566b59b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.Result&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; () in openInApp.NetWorkManager.fetchData() -&gt; Combine.Future&lt;Swift.Array&lt;openInApp.OpenInAppDataModel&gt;, Swift.Error&gt;"
+                  moduleName = "openInApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robingeorge/Documents/Assignment%20help%202/openInApp/openInApp/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1220">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
