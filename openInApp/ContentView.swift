@@ -8,27 +8,11 @@
 import SwiftUI
 import Charts
 
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-
-
-
-//
-//  ContentView.swift
-//  openInApp
-//
-//  Created by HD-045 on 12/06/23.
-//
-
-import SwiftUI
-
-
 
 struct ContentView: View {
     enum SelectedButton {
@@ -40,6 +24,7 @@ struct ContentView: View {
     @State private var selectedButton: SelectedButton = .topLinks
     @StateObject private var contentViewModel: ContentViewModel = ContentViewModel()
     @State private var greeting = ""
+    
     var links: [TopLink]? {
         if selectedButton == .topLinks {
             return contentViewModel.topLinks
@@ -48,14 +33,13 @@ struct ContentView: View {
         }
         return nil
     }
-
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             TopNavigationView()
-          
+            
             ScrollView {
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 20) {
                     Text(greeting)
                         .font(.callout)
                         .fontWeight(.light)
@@ -67,6 +51,8 @@ struct ContentView: View {
                         .font(.title)
                         .fontWeight(.semibold)
                     
+                    BarChartView(data: contentViewModel.chartData)
+                    
                     TopListsView(topLists: contentViewModel.topLists)
                     
                     NavigationLink(destination: EmptyView()) {
@@ -74,7 +60,7 @@ struct ContentView: View {
                     }
                     
                     ButtonSection(selectedButton: $selectedButton)
-                    
+                        
                     TopLinksView(topLinks: links)
                         .frame(height: 300)
                     
@@ -109,21 +95,21 @@ struct TopNavigationView: View {
 }
 
 struct TopListsView: View {
-    
     let topLists: TopList?
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 10)  {
-                        Image("clickIcon")
-                        Text("\(topLists?.totalClicks ?? 0)")
+                    Image("clickIcon")
+                    Text("\(topLists?.totalClicks ?? 0)")
                         .fontWeight(.semibold)
-                        Text("Today’s clicks")
+                    Text("Today’s clicks")
                         .fontWeight(.light)
                         .foregroundColor(.gray)
-                    }
-                    .frame(width: 128, height: 128)
-                    .background(Color.white)
+                }
+                .frame(width: 128, height: 128)
+                .background(Color.white)
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Image("locationIcon")
@@ -169,7 +155,7 @@ struct CustomButton: View {
         .buttonBorderShape(.roundedRectangle)
         .overlay(
             RoundedRectangle(cornerRadius: 5)
-                .stroke(Color.gray, lineWidth: 1)
+                .stroke(Color.gray.opacity(0.4), lineWidth: 1)
         )
     }
 }
@@ -214,7 +200,7 @@ struct ButtonSection: View {
 
 struct TopLinksView: View {
     let topLinks: [TopLink]?
-   
+    
     var body: some View {
         List {
             ForEach(topLinks ?? []) { link in
@@ -222,21 +208,21 @@ struct TopLinksView: View {
                     VStack {
                         HStack {
                             AsyncImage(url: URL(string:link.image)) { phase in
-                                       switch phase {
-                                       case .empty:
-                                           ProgressView()
-                                       case .success(let image):
-                                           image
-                                               .resizable()
-                                               .aspectRatio(contentMode: .fit)
-                                       case .failure(let error):
-                                           Text("Failed to load image: \(error.localizedDescription)")
-                                       @unknown default:
-                                           EmptyView()
-                                       }
-                                   }
+                                switch phase {
+                                case .empty:
+                                    ProgressView()
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                case .failure(let error):
+                                    Text("Failed to load image: \(error.localizedDescription)")
+                                @unknown default:
+                                    EmptyView()
+                                }
+                            }
                             .frame(width: 48, height: 48)
-                               
+                            
                             
                             VStack(spacing: 5) {
                                 HStack {
@@ -287,7 +273,7 @@ struct TopLinksView: View {
 
 struct AdditionalButtonsView: View {
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 30) {
             NavigationLink(destination: EmptyView()) {
                 CustomButton(imageName: "link", title: "View Analytics")
             }
@@ -305,7 +291,7 @@ struct AdditionalButtonsView: View {
                 .buttonBorderShape(.roundedRectangle)
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.gray, lineWidth: 1)
+                        .stroke(Color.gray.opacity(0.4), lineWidth: 1)
                 )
                 .background(Color("SecondaryGreen"))
             }
@@ -323,16 +309,13 @@ struct AdditionalButtonsView: View {
                 .buttonBorderShape(.roundedRectangle)
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.gray, lineWidth: 1)
+                        .stroke(Color.gray.opacity(0.4), lineWidth: 1)
                 )
                 .background(Color("SecondaryLightBlue"))
             }
         }
     }
 }
-
-
-
 
 struct BottomMenuBar: View {
     @State private var selectedTab = 0
@@ -380,7 +363,7 @@ struct TabItem: View {
             selectedTab = index
         }) {
             VStack(spacing: 4) {
-                Image( imageName)
+                Image(imageName)
                 Text(title)
                     .font(.caption)
             }
@@ -409,7 +392,7 @@ struct TabMainItem: View {
                 Circle()
                     .frame(width: 60,height: 60)
                     .foregroundColor(Color("PrimaryBlue"))
-                Image( imageName)
+                Image(imageName)
             }
             .foregroundColor(selectedTab == index ? .black : .gray)
             .padding(.vertical, 8)
@@ -417,5 +400,18 @@ struct TabMainItem: View {
         }
     }
 }
-
-
+struct BarChartView: View {
+    var data: [DataPoint]
+    
+    var body: some View {
+        
+        Chart(data) {
+           
+              LineMark(
+                x: .value("Date", $0.date),
+                  y: .value("Value", $0.value)
+              )
+              .foregroundStyle(.blue)
+          }
+    }
+}
