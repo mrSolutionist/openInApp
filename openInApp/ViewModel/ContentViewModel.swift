@@ -8,44 +8,32 @@
 import Foundation
 import Combine
 
-
-struct TopList: Identifiable{
-    var id: UUID
-    var image: String
-    var name: String
-    var description : String
-    let totalLinks, totalClicks, todayClicks: Int
-    let topSource, topLocation, startTime: String
+enum SelectedButton {
+    case topLinks
+    case recentLinks
+    case search
 }
 
-struct TopLink: Identifiable{
-    var id: UUID
-    var image: String
-    var name: String
-    var date : String
-    var clicks: String
-    var link: String
-}
+
+
 
 
 class ContentViewModel: ObservableObject{
-    
     private var cancellables = Set<AnyCancellable>()
     @Published var fetchedData: OpenInAppDataModel?
-    
-   
     @Published var chartData: [DataPoint] = []
-   @Published var topLists: TopList?
+    @Published var topLists: TopList?
     @Published var topLinks: [TopLink] = []
     @Published var recentLinks: [TopLink] = []
     
-  
-
+    
+    
     init(){
         fetchDetails()
     }
     
- 
+    
+    // Handling response
     func fetchDetails() {
         NetWorkManager.shared.fetch { result in
             switch result {
@@ -70,7 +58,7 @@ class ContentViewModel: ObservableObject{
                                 link: $0.webLink)
                     }
                     
-                    // Map other properties to your custom TopList model
+                 
                     self.topLists = TopList(id: UUID(),
                                             image: "", // Provide the appropriate value
                                             name: "", // Provide the appropriate value
@@ -82,11 +70,11 @@ class ContentViewModel: ObservableObject{
                                             topLocation: responseData.topLocation,
                                             startTime: responseData.startTime)
                     
-                    // Map other properties to your custom TopList model
+                  
                     self.chartData = responseData.data.overallURLChart.map { (date, value) in
                         DataPoint(date: date, value: value)
                     }
-
+                    
                 }
                 
             case .failure(let error):
@@ -95,8 +83,8 @@ class ContentViewModel: ObservableObject{
             }
         }
     }
-
-     func getGreeting(for time: Date) -> String {
+    
+    func getGreeting(for time: Date) -> String {
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: time)
         
@@ -109,15 +97,10 @@ class ContentViewModel: ObservableObject{
             return "Good evening"
         }
     }
-
     
-
+    
+    
 }
 
 
-struct DataPoint: Identifiable {
-    let id = UUID()
-    let date: String
-    let value: Int
-}
 
